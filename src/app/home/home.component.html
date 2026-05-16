@@ -1,0 +1,22 @@
+<div class="card-container">
+  <div class="card-header">
+    <h2>🎯 Mis Metas de Vida</h2>
+  </div>
+
+  <div class="form-group">
+    <input type="text" [(ngModel)]="nuevaMetaTexto" placeholder="Ej. Aprender a usar Docker..." (keyup.enter)="guardar()">
+    <button class="btn-add" (click)="guardar()">Agregar</button>
+  </div>
+
+  <div class="metas-list">
+    <div *ngFor="let item of metasList" class="meta-item">
+      <span>{{ item.meta }}</span>
+      <button class="btn-delete" (click)="eliminar(item.id)">Eliminar</button>
+    </div>
+    
+    <!-- Mensaje si no hay metas -->
+    <p *ngIf="metasList.length === 0" style="text-align: center; color: #7f8c8d;">
+      Aún no tienes metas registradas. ¡Escribe la primera arriba!
+    </p>
+  </div>
+</div>
